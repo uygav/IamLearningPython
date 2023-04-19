@@ -372,7 +372,7 @@ import shutil
 #     print(result)
 # except ZeroDivisionError as e:
 #     print(e)
-#     print("you can't diviide by zero! idiot!")
+#     print("you can't divide by zero! idiot!")
 # except ValueError as e:
 #     print(e)
 #     print("enter only numbers plz")
@@ -386,7 +386,7 @@ import shutil
 #     result = numerator / denominator
 # except ZeroDivisionError as e:
 #     print(e)
-#     print("you can't diviide by zero! idiot!")
+#     print("you can't divide by zero! idiot!")
 # except ValueError as e:
 #     print(e)
 #     print("enter only numbers plz")
@@ -528,3 +528,79 @@ import shutil
 # print(car_1.wheels)
 # print(car_2.wheels)
 ################################################## inheritance
+# class Animal:
+#     alive = True
+#
+#     def eat(self):
+#         print("this animal is eating")
+#     def sleep(self):
+#         print("this animal is sleeping")
+#
+# class Rabbit(Animal):
+#     def run(self):
+#         print("this rabbit is running")
+# class Fish(Animal):
+#     def swim(self):
+#         print("this fish is swimming")
+# class Hawk(Animal):
+#     def fly(self):
+#         print("this hawk is flying")
+#
+# rabbit = Rabbit()
+# fish = Fish()
+# hawk = Hawk()
+#
+# print(rabbit.alive)
+# fish.eat()
+# hawk.sleep()
+#
+# rabbit.run()
+# fish.swim()
+# hawk.fly()
+################################################## multi-level inheritance
+# class Organism:
+#     alive = True
+#
+# class Animal(Organism):
+#     def eat(self):
+#         print("this animal is eating")
+#
+# class Dog(Animal):
+#     def bark(self):
+#         print("this dog is barking")
+#
+# dog = Dog()
+# print(dog.alive)
+# dog.eat()
+# dog.bark()
+################################################## multiple inheritence
+class Prey:
+    def flee(self):
+        print("this animal flees")
+
+class Predator:
+    def hunt(self):
+        print("this animal is hunting")
+
+class Rabbit(Prey):
+    pass
+
+class Hawk(Predator):
+    pass
+
+class Fish(Prey,Predator):
+    pass
+
+rabbit = Rabbit()
+hawk = Hawk()
+fish = Fish()
+
+rabbit.flee()
+hawk.hunt()
+fish.flee()
+fish.hunt()
+
+
+
+
+
