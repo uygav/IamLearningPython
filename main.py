@@ -600,36 +600,60 @@ import shutil
 # fish.flee()
 # fish.hunt()
 ##################################################
-class Car:
-    def turn_on(self):
-        print("you start the engine")
-        return self
+# class Car:
+#     def turn_on(self):
+#         print("you start the engine")
+#         return self
+#
+#     def drive(self):
+#         print("you drive the car")
+#         return self
+#     def brake(self):
+#         print("you step on the brakes")
+#         return self
+#
+#     def turn_off(self):
+#         print("you turn off the engine")
+#         return self
+#
+# car = Car()
+# car.turn_on().drive()
+# car.brake().turn_off()
+#
+# car.turn_on()
+# car.drive()
+# car.brake()
+# car.turn_off()
+#
+# car.turn_on().drive().brake().turn_off()
+#
+# car.turn_on()\
+#     .drive()\
+#     .brake()\
+#     .turn_off()
+##################################################
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+class Square(Rectangle):
+    def __init__(self,length,width):
+        super().__init__(length,width)
+    def area(self):
+        return self.length*self.width
+class Cube(Rectangle):
+    def __init__(self,length,width,height):
+        super().__init__(length,width)
+        self.height = height
+    def volume(self):
+        return self.length*self.width*self.height
 
-    def drive(self):
-        print("you drive the car")
-        return self
-    def brake(self):
-        print("you step on the brakes")
-        return self
+square = Square(3,3)
+cube = Cube(3,3,3)
 
-    def turn_off(self):
-        print("you turn off the engine")
-        return self
+print(square.area())
+print(cube.volume())
 
-car = Car()
-car.turn_on().drive()
-car.brake().turn_off()
 
-car.turn_on()
-car.drive()
-car.brake()
-car.turn_off()
-
-car.turn_on().drive().brake().turn_off()
-
-car.turn_on()\
-    .drive()\
-    .brake()\
-    .turn_off()
 
 
