@@ -574,33 +574,62 @@ import shutil
 # dog.eat()
 # dog.bark()
 ################################################## multiple inheritence
-class Prey:
-    def flee(self):
-        print("this animal flees")
+# class Prey:
+#     def flee(self):
+#         print("this animal flees")
+#
+# class Predator:
+#     def hunt(self):
+#         print("this animal is hunting")
+#
+# class Rabbit(Prey):
+#     pass
+#
+# class Hawk(Predator):
+#     pass
+#
+# class Fish(Prey,Predator):
+#     pass
+#
+# rabbit = Rabbit()
+# hawk = Hawk()
+# fish = Fish()
+#
+# rabbit.flee()
+# hawk.hunt()
+# fish.flee()
+# fish.hunt()
+##################################################
+class Car:
+    def turn_on(self):
+        print("you start the engine")
+        return self
 
-class Predator:
-    def hunt(self):
-        print("this animal is hunting")
+    def drive(self):
+        print("you drive the car")
+        return self
+    def brake(self):
+        print("you step on the brakes")
+        return self
 
-class Rabbit(Prey):
-    pass
+    def turn_off(self):
+        print("you turn off the engine")
+        return self
 
-class Hawk(Predator):
-    pass
+car = Car()
+car.turn_on().drive()
+car.brake().turn_off()
 
-class Fish(Prey,Predator):
-    pass
+car.turn_on()
+car.drive()
+car.brake()
+car.turn_off()
 
-rabbit = Rabbit()
-hawk = Hawk()
-fish = Fish()
+car.turn_on().drive().brake().turn_off()
 
-rabbit.flee()
-hawk.hunt()
-fish.flee()
-fish.hunt()
-
-
-
+car.turn_on()\
+    .drive()\
+    .brake()\
+    .turn_off()
 
 
