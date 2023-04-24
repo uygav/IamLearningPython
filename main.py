@@ -761,18 +761,111 @@ import shutil
 #     foods.append(food)
 
 ################################################## functions to variables
-def hello():
-    print("hello")
+# def hello():
+#     print("hello")
+#
+# print(hello())
+#
+# hello()
+# print(hello)
+# hi = hello
+# print(hi)
+# hi()
+#########
+# say = print
+# say = ("wow :O")
 
-print(hello())
+################################################## higher order functions
 
-hello()
-print(hello)
-hi = hello
-print(hi)
-hi()
-##########
-say = print
-say = ("wow :O")
+# def loud(text):
+#     return text.upper()
+# def quiet(text):
+#     return text.lower()
+# def hello(func):
+#     text = func("hello")
+#     print(text)
+#
+# hello(loud)
+# hello(quiet)
+
+####################
+
+# def divisor(x):
+#     def dividend(y):
+#         return y/x
+#     return dividend
+#
+# divide = divisor(2)
+# print(divide(10))
+
+################################################## lambda usage
+
+# def double(x):
+#     return x*2
+# print(double(5))
+
+##############################
+
+# double = lambda x : x*2
+# print(double(5))
+# multiply = lambda x, y: x*y
+# print(multiply(5,6))
+# add = lambda x, y, z: x+y+z
+# print(add(5,6,7))
+# full_name = lambda first_name , last_name : first_name+" "+ last_name
+# print(full_name("uygar","muntas"))
+# age_check = lambda age:True if age>=18 else False
+# print(age_check(18))
+
+################################################## sort
+
+# students = ["squidward","sandy","patrick","spongebob","mr.krabs"]
+# students.sort(reverse=True)
+#
+# for i in students:
+#     print(i)
+####################
+# students = ("squidward","sandy","patrick","spongebob","mr.krabs")
+# students.sort()
+# print(students)
+####################
+# students = ("squidward","sandy","patrick","spongebob","mr.krabs")
+# sorted_students = sorted(students,reverse=True)
+#
+# for i in sorted_students:
+#     print(i)
+
+##############################
+# students = [("squidward","F",60),
+#             ("sandy","A",33),
+#             ("patrick","D",36),
+#             ("spongebob","B",20),
+#             ("mr.krabs","C",78)]
+#
+# age = lambda ages:ages[2]
+# students.sort(key=age,reverse=True)
+#
+# for i in students:
+#     print(i)
+##############################
+
+# students = [("squidward","F",60),
+#              ("sandy","A",33),
+#              ("patrick","D",36),
+#              ("spongebob","B",20),
+#              ("mr.krabs","C",78)]
+# age = lambda ages:ages[2]
+# sorted_students = sorted(students,key=age)
+#
+# for i in sorted_students:
+#     print(i)
+
+################################################## map
+
+
+
+
+
+
 
 
