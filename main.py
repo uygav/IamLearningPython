@@ -1018,12 +1018,73 @@ import shutil
 
 ##############################
 
-usernames = ["dude","bro","mister"]
-passwords = ["p@ssword","abc123","guest"]
-login_date = ["1/1/2021","1/2/2021","1/3/2021"]
-users = zip(usernames,passwords,login_date)
-for i in users:
-    print(i)
+# usernames = ["dude","bro","mister"]
+# passwords = ["p@ssword","abc123","guest"]
+# login_date = ["1/1/2021","1/2/2021","1/3/2021"]
+# users = zip(usernames,passwords,login_date)
+# for i in users:
+#     print(i)
+
+################################################## if__name__ == '__main__'
+
+
+
+# print(__name__)
+#
+# if __name__ == '__main__':
+#     print("running this module directly")
+# else:
+#     print("running other module indirectly")
+
+################################################## time module
+
+import time
+
+# print(time.ctime(0))
+# print(time.ctime(100000))
+
+####################
+
+# print(time.time())
+# print(time.ctime(1682548878.28668))
+# print(time.ctime(time.time()))
+
+####################
+
+# time_object = time.localtime()
+# print(time_object)
+
+####################
+
+# https://docs.python.org/3/library/time.html
+
+# local_time = time.strftime("%B %d %Y %H %M %S",time_object)
+# print(local_time)
+
+####################
+
+# time_object2 = time.gmtime()
+# print(time_object2)
+
+####################
+
+# time_string = "20 April, 2020"
+# time_object = time.strptime(time_string,"%d %B, %Y")
+# print(time_object)
+
+####################
+
+# time_tuple = (2020, 4, 20, 4, 20, 0, 0, 0, 0)
+# time_string = time.asctime(time_tuple)
+# print(time_string)
+
+####################
+
+# time_tuple = (2020, 4, 20, 4, 20, 0, 0, 0, 0)
+# time_string = time.mktime(time_tuple)
+# print(time_string)
+
+################################################## threading
 
 
 
