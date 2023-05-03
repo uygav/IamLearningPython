@@ -1086,21 +1086,21 @@ import time
 
 ################################################## threading
 
-import threading
-import time
-
-print(threading.active_count())
-print(threading.enumerate())
-print(time.perf_counter())
-def eat_breakfast():
-    time.sleep(3)
-    print("you eat breakfast")
-def drink_coffee():
-    time.sleep(4)
-    print("you drank coffee")
-def study():
-    time.sleep(5)
-    print("you finish studying")
+# import threading
+# import time
+#
+# print(threading.active_count())
+# print(threading.enumerate())
+# print(time.perf_counter())
+# def eat_breakfast():
+#     time.sleep(3)
+#     print("you eat breakfast")
+# def drink_coffee():
+#     time.sleep(4)
+#     print("you drank coffee")
+# def study():
+#     time.sleep(5)
+#     print("you finish studying")
 
 # eat_breakfast()
 # drink_coffee()
@@ -1108,20 +1108,34 @@ def study():
 
 ##############################
 
-x = threading.Thread(target=eat_breakfast,args=())
+# x = threading.Thread(target=eat_breakfast,args=())
+# x.start()
+#
+# y = threading.Thread(target=drink_coffee,args=())
+# y.start()
+#
+# z = threading.Thread(target=study,args=())
+# z.start()
+#
+# x.join()
+# y.join()
+# z.join()
+
+
+##################################################
+
+import threading
+import time
+
+
+def timer():
+    print()
+    count = 0
+    while True:
+        time.sleep(1)
+        count += 1
+        print("logged in for : ",count," seconds")
+
+x = threading.Thread(target=timer,daemon=True)
 x.start()
-
-y = threading.Thread(target=drink_coffee,args=())
-y.start()
-
-z = threading.Thread(target=study,args=())
-z.start()
-
-x.join()
-y.join()
-z.join()
-
-
-
-
-
+answer = input("do you wish to exit ?")
