@@ -1144,39 +1144,80 @@ import time
 # multiprocessing = better for cpu bound tasks (heavy cpu usage)
 # multithreading = better for io bound tasks (waiting around)
 
-from multiprocessing import Process,cpu_count
-import time
+# from multiprocessing import Process,cpu_count
+# import time
+#
+# def counter(num):
+#     count = 0
+#     while count < num:
+#         count += 1
+#
+# def main():
+#     a = Process(target=counter,args=(100000,))
+#     b = Process(target=counter,args=(100000,))
+#     c = Process(target=counter, args=(100000,))
+#     d = Process(target=counter, args=(100000,))
+#
+#
+#     a.start()
+#     b.start()
+#     c.start()
+#     d.start()
+#
+#     a.join()
+#     b.join()
+#     c.join()
+#     d.join()
+#
+#
+#
+#     print("finished in:",time.perf_counter(),"seconds")
+#
+#
+# if __name__ == '__main__':
+#     main()
 
-def counter(num):
-    count = 0
-    while count < num:
-        count += 1
+################################################## gui windows
+# from tkinter import *
+#
+# # widgets = gui elements : buttons , txt boxes , labels , images,
+# # windows = serves as a container to hold or contain these widgets
+#
+# window = Tk() #instantiate an instance of a window
+# window.geometry("420x420")
+# window.title("uygarrrr")
+#
+# # icon = PhotoImage(file='shikamaru.jpg')
+# # window.iconphoto(True,icon)
+#
+# # window.config(background='orange')
+# window.config(background="#14e8ff")
+#
+# window.mainloop() #place window on computer screen
 
-def main():
-    a = Process(target=counter,args=(100000,))
-    b = Process(target=counter,args=(100000,))
-    c = Process(target=counter, args=(100000,))
-    d = Process(target=counter, args=(100000,))
+################################################## label
+
+from tkinter import *
+
+window = Tk()
+
+# photo = PhotoImage(file='C:\\Users\\UYGAV\\OneDrive\\Masaüstü\\fotolarim\\friends1.jpg')
+# i couldn't do this photo , i'll try later
+
+label = Label(window,
+              text="hello world",
+              font=('Arial',40,'bold'),
+              fg='red',
+              bg='yellow',
+              relief=SUNKEN,
+              bd=10,
+              padx=20,
+              pady=20,
+              compound='top')
+
+label.pack()
+# label.place(x=15,y=0)
 
 
-    a.start()
-    b.start()
-    c.start()
-    d.start()
-
-    a.join()
-    b.join()
-    c.join()
-    d.join()
-
-
-
-    print("finished in:",time.perf_counter(),"seconds")
-
-
-if __name__ == '__main__':
-    main()
-
-
-
+window.mainloop()
 
