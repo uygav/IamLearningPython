@@ -1122,20 +1122,61 @@ import time
 # z.join()
 
 
-##################################################
+################################################## daemon threading
 
-import threading
+# import threading
+# import time
+#
+#
+# def timer():
+#     print()
+#     count = 0
+#     while True:
+#         time.sleep(1)
+#         count += 1
+#         print("logged in for : ",count," seconds")
+#
+# x = threading.Thread(target=timer,daemon=True)
+# x.start()
+# answer = input("do you wish to exit ?")
+
+################################################## multi-processing
+# multiprocessing = better for cpu bound tasks (heavy cpu usage)
+# multithreading = better for io bound tasks (waiting around)
+
+from multiprocessing import Process,cpu_count
 import time
 
-
-def timer():
-    print()
+def counter(num):
     count = 0
-    while True:
-        time.sleep(1)
+    while count < num:
         count += 1
-        print("logged in for : ",count," seconds")
 
-x = threading.Thread(target=timer,daemon=True)
-x.start()
-answer = input("do you wish to exit ?")
+def main():
+    a = Process(target=counter,args=(100000,))
+    b = Process(target=counter,args=(100000,))
+    c = Process(target=counter, args=(100000,))
+    d = Process(target=counter, args=(100000,))
+
+
+    a.start()
+    b.start()
+    c.start()
+    d.start()
+
+    a.join()
+    b.join()
+    c.join()
+    d.join()
+
+
+
+    print("finished in:",time.perf_counter(),"seconds")
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+
