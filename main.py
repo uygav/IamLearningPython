@@ -1223,29 +1223,68 @@ import time
 
 ################################################## button
 
+# from tkinter import *
+#
+#
+# count = 0
+# def click():
+#     global count
+#     count +=1
+#     print(count)
+#
+# window = Tk()
+#
+# button = Button(window,
+#                 text="click me !",
+#                 command=click,
+#                 font=("Comic Sans",30),
+#                 fg="red",   # foreground
+#                 bg="yellow",    # background
+#                 activebackground="black",
+#                 activeforeground="green",
+#                 state=ACTIVE)  #default
+# # you can add image
+# button.pack()
+#
+# window.mainloop()
+
+################################################## entry box
+
 from tkinter import *
 
+def submit():
+    username = entry.get()
+    print("hello "+username)
+    entry.config(state=DISABLED)
 
-count = 0
-def click():
-    global count
-    count +=1
-    print(count)
+def delete():
+    entry.delete(0,END)
+
+def backspace():
+    entry.delete(len(entry.get())-1,END)
 
 window = Tk()
 
-button = Button(window,
-                text="click me !",
-                command=click,
-                font=("Comic Sans",30),
-                fg="red",   # foreground
-                bg="yellow",    # background
-                activebackground="black",
-                activeforeground="green",
-                state=ACTIVE)  #default
-# you can add image
-button.pack()
+entry = Entry(window,
+              font=("Arial",50),
+              fg="green",
+              bg="black",
+              show="*")
+# entry.insert(0,'insert ')
+entry.pack(side=LEFT)
+
+submit_button = Button(window,text="submit",command=submit)
+submit_button.pack(side=RIGHT)
+
+delete_button = Button(window,text="delete",command=delete)
+delete_button.pack(side=LEFT)
+
+backspace_button = Button(window,text="backspace",command=backspace)
+backspace_button.pack(side=LEFT)
 
 window.mainloop()
+
+
+
 
 
