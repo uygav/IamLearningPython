@@ -1197,27 +1197,55 @@ import time
 
 ################################################## label
 
+# from tkinter import *
+#
+# window = Tk()
+#
+# # photo = PhotoImage(file='C:\\Users\\UYGAV\\OneDrive\\Masaüstü\\fotolarim\\friends1.jpg')
+# # i couldn't do this photo , i'll try later
+#
+# label = Label(window,
+#               text="hello world",
+#               font=('Arial',40,'bold'),
+#               fg='red',
+#               bg='yellow',
+#               relief=SUNKEN,
+#               bd=10,
+#               padx=20,
+#               pady=20,
+#               compound='top')
+#
+# label.pack()
+# # label.place(x=15,y=0)
+#
+#
+# window.mainloop()
+
+################################################## button
+
 from tkinter import *
+
+
+count = 0
+def click():
+    global count
+    count +=1
+    print(count)
 
 window = Tk()
 
-# photo = PhotoImage(file='C:\\Users\\UYGAV\\OneDrive\\Masaüstü\\fotolarim\\friends1.jpg')
-# i couldn't do this photo , i'll try later
-
-label = Label(window,
-              text="hello world",
-              font=('Arial',40,'bold'),
-              fg='red',
-              bg='yellow',
-              relief=SUNKEN,
-              bd=10,
-              padx=20,
-              pady=20,
-              compound='top')
-
-label.pack()
-# label.place(x=15,y=0)
-
+button = Button(window,
+                text="click me !",
+                command=click,
+                font=("Comic Sans",30),
+                fg="red",   # foreground
+                bg="yellow",    # background
+                activebackground="black",
+                activeforeground="green",
+                state=ACTIVE)  #default
+# you can add image
+button.pack()
 
 window.mainloop()
+
 
