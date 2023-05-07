@@ -1250,40 +1250,73 @@ import time
 
 ################################################## entry box
 
+# from tkinter import *
+#
+# def submit():
+#     username = entry.get()
+#     print("hello "+username)
+#     entry.config(state=DISABLED)
+#
+# def delete():
+#     entry.delete(0,END)
+#
+# def backspace():
+#     entry.delete(len(entry.get())-1,END)
+#
+# window = Tk()
+#
+# entry = Entry(window,
+#               font=("Arial",50),
+#               fg="green",
+#               bg="black",
+#               show="*")
+# # entry.insert(0,'insert ')
+# entry.pack(side=LEFT)
+#
+# submit_button = Button(window,text="submit",command=submit)
+# submit_button.pack(side=RIGHT)
+#
+# delete_button = Button(window,text="delete",command=delete)
+# delete_button.pack(side=LEFT)
+#
+# backspace_button = Button(window,text="backspace",command=backspace)
+# backspace_button.pack(side=LEFT)
+#
+# window.mainloop()
+
+################################################## checkbox
+
 from tkinter import *
 
-def submit():
-    username = entry.get()
-    print("hello "+username)
-    entry.config(state=DISABLED)
-
-def delete():
-    entry.delete(0,END)
-
-def backspace():
-    entry.delete(len(entry.get())-1,END)
+def dispalay():
+    if(x.get()==1):
+        print("you agree!")
+    else:
+        print("you dont agree")
 
 window = Tk()
 
-entry = Entry(window,
-              font=("Arial",50),
-              fg="green",
-              bg="black",
-              show="*")
-# entry.insert(0,'insert ')
-entry.pack(side=LEFT)
+x = IntVar() # you can use stringVar or booleanVar
 
-submit_button = Button(window,text="submit",command=submit)
-submit_button.pack(side=RIGHT)
+check_button = Checkbutton(window,
+                           text="i agree to something",
+                           variable=x,
+                           onvalue=1,
+                           offvalue=0,
+                           command=dispalay,
+                           font=('Arial',20),
+                           fg='green',
+                           bg='black',
+                           activeforeground='green',
+                           activebackground='black',
+                           padx=25,
+                           pady=10,
+                           )
+# you can also add image
 
-delete_button = Button(window,text="delete",command=delete)
-delete_button.pack(side=LEFT)
-
-backspace_button = Button(window,text="backspace",command=backspace)
-backspace_button.pack(side=LEFT)
+check_button.pack()
 
 window.mainloop()
-
 
 
 
