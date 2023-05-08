@@ -1286,37 +1286,63 @@ import time
 
 ################################################## checkbox
 
+# from tkinter import *
+#
+# def dispalay():
+#     if(x.get()==1):
+#         print("you agree!")
+#     else:
+#         print("you dont agree")
+#
+# window = Tk()
+#
+# x = IntVar() # you can use stringVar or booleanVar
+#
+# check_button = Checkbutton(window,
+#                            text="i agree to something",
+#                            variable=x,
+#                            onvalue=1,
+#                            offvalue=0,
+#                            command=dispalay,
+#                            font=('Arial',20),
+#                            fg='green',
+#                            bg='black',
+#                            activeforeground='green',
+#                            activebackground='black',
+#                            padx=25,
+#                            pady=10,
+#                            )
+# # you can also add image
+#
+# check_button.pack()
+#
+# window.mainloop()
+
+################################################## radio button
+
 from tkinter import *
 
-def dispalay():
-    if(x.get()==1):
-        print("you agree!")
-    else:
-        print("you dont agree")
+food =["pizza","hamburger","hotdog"]
 
 window = Tk()
 
-x = IntVar() # you can use stringVar or booleanVar
+x = IntVar()
 
-check_button = Checkbutton(window,
-                           text="i agree to something",
-                           variable=x,
-                           onvalue=1,
-                           offvalue=0,
-                           command=dispalay,
-                           font=('Arial',20),
-                           fg='green',
-                           bg='black',
-                           activeforeground='green',
-                           activebackground='black',
-                           padx=25,
-                           pady=10,
-                           )
-# you can also add image
-
-check_button.pack()
+for index in range(len(food)):
+    radio_button = Radiobutton(window,
+                               text=food[index], # adds text to radio buttons
+                               variable=x, # groups radiobuttons together if they share the same variable
+                               value=index,  # assigns each radiobutton a different value
+                               padx=25, # adds padding on x-axis
+                               font=("Impact",50),
+                               indicatoron=0, # eliminate circle indicators
+                               width=25, # sets width of radio button
+                               )
+    radio_button.pack(anchor=W)
 
 window.mainloop()
+
+
 
 
 
