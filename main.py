@@ -1320,30 +1320,73 @@ import time
 
 ################################################## radio button
 
+# from tkinter import *
+#
+# food =["pizza","hamburger","hotdog"]
+#
+# def order():
+#     if(x.get()==0):
+#         print("you ordered pizza!")
+#     elif(x.get()==1):
+#         print("you ordered a hamburger!")
+#     elif(x.get()==2):
+#         print("you ordered a hotdog!")
+#     else:
+#         print("huh?")
+#
+# window = Tk()
+#
+# x = IntVar()
+#
+# for index in range(len(food)):
+#     radio_button = Radiobutton(window,
+#                                text=food[index], # adds text to radio buttons
+#                                variable=x, # groups radiobuttons together if they share the same variable
+#                                value=index,  # assigns each radiobutton a different value
+#                                padx=25, # adds padding on x-axis
+#                                font=("Impact",50),
+#                                indicatoron=0, # eliminate circle indicators
+#                                width=25, # sets width of radio button
+#                                command=order, # set command of radiobutton to function
+#                                )
+#     radio_button.pack(anchor=W)
+#
+# window.mainloop()
+
+
+################################################## scale
 from tkinter import *
 
-food =["pizza","hamburger","hotdog"]
+def submit():
+    print("the temperature is : " + str(scale.get()) + " degrees C")
 
 window = Tk()
+# you can also add images
+scale = Scale(window,
+              from_=100,
+              to=0,
+              length=600,
+              orient=VERTICAL, # orientation of scale
+              font=('Consolas',20),
+              tickinterval=10, # adds numeric indicators for value
+              showvalue=1, #hide current value
+              resolution=5, # increment of slider
+              troughcolor="yellow",
+              fg='red',
+              bg='#69EAFF'
+              )
+scale.set((scale['from']+scale['to'])/2) # set current value of slider
 
-x = IntVar()
+scale.pack()
 
-for index in range(len(food)):
-    radio_button = Radiobutton(window,
-                               text=food[index], # adds text to radio buttons
-                               variable=x, # groups radiobuttons together if they share the same variable
-                               value=index,  # assigns each radiobutton a different value
-                               padx=25, # adds padding on x-axis
-                               font=("Impact",50),
-                               indicatoron=0, # eliminate circle indicators
-                               width=25, # sets width of radio button
-                               )
-    radio_button.pack(anchor=W)
+button = Button(window,
+                text='submit',
+                command=submit,
+                )
+button.pack()
+
 
 window.mainloop()
-
-
-
 
 
 
