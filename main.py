@@ -1395,52 +1395,117 @@ from tkinter import *
 ############# def submit():
 #############     print(listbox.get(listbox.curselection())) you can use this func but you'll get a error about multiple option
 
-def submit():
-    food=[]
+# def submit():
+#     food=[]
+#
+#     for index in listbox.curselection():
+#         food.insert(index,listbox.get(index))
+#     for index in food:
+#         print(index)
+#
+# def add():
+#     listbox.insert(listbox.size(),entry_box.get())
+#     listbox.config(height=listbox.size())
+#
+# def delete():
+#     for index in reversed(listbox.curselection()):
+#         listbox.delete(index)
+#     listbox.config(height=listbox.size())
+#
+# window = Tk()
+#
+# listbox = Listbox(window,
+#                   bg="#f7ffde",
+#                   font=("Constantia",20),
+#                   width=15,
+#                   selectmode=MULTIPLE)
+# listbox.pack()
+# listbox.insert(1,"pizza")
+# listbox.insert(2,"pasta")
+# listbox.insert(3,"garlic bread")
+# listbox.insert(4,"soup")
+# listbox.insert(5,"salad")
+#
+# listbox.config(height=listbox.size())
+#
+# entry_box = Entry(window)
+# entry_box.pack()
+#
+# submit_button = Button(window,text="submit",command=submit)
+# submit_button.pack()
+#
+# add_button = Button(window,text="add",command=add)
+# add_button.pack()
+#
+# delete_button = Button(window,text="delete",command=delete)
+# delete_button.pack()
+#
+# window.mainloop()
 
-    for index in listbox.curselection():
-        food.insert(index,listbox.get(index))
-    for index in food:
-        print(index)
+################################################## messagebox
 
-def add():
-    listbox.insert(listbox.size(),entry_box.get())
-    listbox.config(height=listbox.size())
+from tkinter import *
+from tkinter import messagebox  # import messagebox library
 
-def delete():
-    for index in reversed(listbox.curselection()):
-        listbox.delete(index)
-    listbox.config(height=listbox.size())
+
+
+def click():
+    messagebox.showinfo(title='info message box',
+                        message='are you sure')
+
+def click2():
+    while(True):
+        messagebox.showwarning(title='WARNING!',message='are you sure')
+
+def click3():
+    messagebox.showerror(title='error',message='something went wrong')
+
+def click4():
+    if messagebox.askokcancel(title='ask ok cancel',message='message '):
+        print('you did a thing')
+    else:
+        print('you canceled a thing')
+
+def click5():
+    if messagebox.askretrycancel(title='ask ok cancel',message='message '):
+        print('you did a thing')
+    else:
+        print('you canceled a thing')
+
+def click6():
+    if messagebox.askyesno(title='ask yes or no',message='are you sure'):
+        print('you said yes')
+    else:
+        print('you said no')
+
+def click7():
+    answer = messagebox.askquestion(title='ask question',message='do you like pie?')
+    if(answer=='yes'):
+        print('i like pie too :)')
+    else:
+        print('why do you not like pie? :(')
+
+def click8():
+    answer = messagebox.askyesnocancel(title='you no cancel',message='do you like to code?',icon='warning')
+    if(answer==True):
+        print("you like to code")
+    elif(answer==False):
+        print("then why are you here?")
+    else:
+        print("you have dodged the question")
 
 window = Tk()
 
-listbox = Listbox(window,
-                  bg="#f7ffde",
-                  font=("Constantia",20),
-                  width=15,
-                  selectmode=MULTIPLE)
-listbox.pack()
-listbox.insert(1,"pizza")
-listbox.insert(2,"pasta")
-listbox.insert(3,"garlic bread")
-listbox.insert(4,"soup")
-listbox.insert(5,"salad")
+button = Button(window,
+                text='click me',
+                command=click8)
+button.pack()
 
-listbox.config(height=listbox.size())
 
-entry_box = Entry(window)
-entry_box.pack()
-
-submit_button = Button(window,text="submit",command=submit)
-submit_button.pack()
-
-add_button = Button(window,text="add",command=add)
-add_button.pack()
-
-delete_button = Button(window,text="delete",command=delete)
-delete_button.pack()
 
 window.mainloop()
+
+
 
 
 
