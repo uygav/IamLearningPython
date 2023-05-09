@@ -1355,38 +1355,93 @@ import time
 
 
 ################################################## scale
+# from tkinter import *
+#
+# def submit():
+#     print("the temperature is : " + str(scale.get()) + " degrees C")
+#
+# window = Tk()
+# # you can also add images
+# scale = Scale(window,
+#               from_=100,
+#               to=0,
+#               length=600,
+#               orient=VERTICAL, # orientation of scale
+#               font=('Consolas',20),
+#               tickinterval=10, # adds numeric indicators for value
+#               showvalue=1, #hide current value
+#               resolution=5, # increment of slider
+#               troughcolor="yellow",
+#               fg='red',
+#               bg='#69EAFF'
+#               )
+# scale.set((scale['from']+scale['to'])/2) # set current value of slider
+#
+# scale.pack()
+#
+# button = Button(window,
+#                 text='submit',
+#                 command=submit,
+#                 )
+# button.pack()
+#
+#
+# window.mainloop()
+
+
+################################################## listbox
 from tkinter import *
 
+############# def submit():
+#############     print(listbox.get(listbox.curselection())) you can use this func but you'll get a error about multiple option
+
 def submit():
-    print("the temperature is : " + str(scale.get()) + " degrees C")
+    food=[]
+
+    for index in listbox.curselection():
+        food.insert(index,listbox.get(index))
+    for index in food:
+        print(index)
+
+def add():
+    listbox.insert(listbox.size(),entry_box.get())
+    listbox.config(height=listbox.size())
+
+def delete():
+    for index in reversed(listbox.curselection()):
+        listbox.delete(index)
+    listbox.config(height=listbox.size())
 
 window = Tk()
-# you can also add images
-scale = Scale(window,
-              from_=100,
-              to=0,
-              length=600,
-              orient=VERTICAL, # orientation of scale
-              font=('Consolas',20),
-              tickinterval=10, # adds numeric indicators for value
-              showvalue=1, #hide current value
-              resolution=5, # increment of slider
-              troughcolor="yellow",
-              fg='red',
-              bg='#69EAFF'
-              )
-scale.set((scale['from']+scale['to'])/2) # set current value of slider
 
-scale.pack()
+listbox = Listbox(window,
+                  bg="#f7ffde",
+                  font=("Constantia",20),
+                  width=15,
+                  selectmode=MULTIPLE)
+listbox.pack()
+listbox.insert(1,"pizza")
+listbox.insert(2,"pasta")
+listbox.insert(3,"garlic bread")
+listbox.insert(4,"soup")
+listbox.insert(5,"salad")
 
-button = Button(window,
-                text='submit',
-                command=submit,
-                )
-button.pack()
+listbox.config(height=listbox.size())
 
+entry_box = Entry(window)
+entry_box.pack()
+
+submit_button = Button(window,text="submit",command=submit)
+submit_button.pack()
+
+add_button = Button(window,text="add",command=add)
+add_button.pack()
+
+delete_button = Button(window,text="delete",command=delete)
+delete_button.pack()
 
 window.mainloop()
+
 
 
 
