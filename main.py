@@ -1444,69 +1444,94 @@ from tkinter import *
 
 ################################################## messagebox
 
+# from tkinter import *
+# from tkinter import messagebox  # import messagebox library
+#
+#
+#
+# def click():
+#     messagebox.showinfo(title='info message box',
+#                         message='are you sure')
+#
+# def click2():
+#     while(True):
+#         messagebox.showwarning(title='WARNING!',message='are you sure')
+#
+# def click3():
+#     messagebox.showerror(title='error',message='something went wrong')
+#
+# def click4():
+#     if messagebox.askokcancel(title='ask ok cancel',message='message '):
+#         print('you did a thing')
+#     else:
+#         print('you canceled a thing')
+#
+# def click5():
+#     if messagebox.askretrycancel(title='ask ok cancel',message='message '):
+#         print('you did a thing')
+#     else:
+#         print('you canceled a thing')
+#
+# def click6():
+#     if messagebox.askyesno(title='ask yes or no',message='are you sure'):
+#         print('you said yes')
+#     else:
+#         print('you said no')
+#
+# def click7():
+#     answer = messagebox.askquestion(title='ask question',message='do you like pie?')
+#     if(answer=='yes'):
+#         print('i like pie too :)')
+#     else:
+#         print('why do you not like pie? :(')
+#
+# def click8():
+#     answer = messagebox.askyesnocancel(title='you no cancel',message='do you like to code?',icon='warning')
+#     if(answer==True):
+#         print("you like to code")
+#     elif(answer==False):
+#         print("then why are you here?")
+#     else:
+#         print("you have dodged the question")
+#
+# window = Tk()
+#
+# button = Button(window,
+#                 text='click me',
+#                 command=click8)
+# button.pack()
+#
+#
+#
+# window.mainloop()
+
+
+################################################## color chooser
+
 from tkinter import *
-from tkinter import messagebox  # import messagebox library
-
-
+from tkinter import colorchooser  # submodule
 
 def click():
-    messagebox.showinfo(title='info message box',
-                        message='are you sure')
+    color = colorchooser.askcolor()
+    print(color)
+    colorHex = color[1]
+    print(colorHex)
+    window.config(bg=colorHex)
 
 def click2():
-    while(True):
-        messagebox.showwarning(title='WARNING!',message='are you sure')
+    color = colorchooser.askcolor()
+    window.config(bg=color[1]) # change background color
 
 def click3():
-    messagebox.showerror(title='error',message='something went wrong')
-
-def click4():
-    if messagebox.askokcancel(title='ask ok cancel',message='message '):
-        print('you did a thing')
-    else:
-        print('you canceled a thing')
-
-def click5():
-    if messagebox.askretrycancel(title='ask ok cancel',message='message '):
-        print('you did a thing')
-    else:
-        print('you canceled a thing')
-
-def click6():
-    if messagebox.askyesno(title='ask yes or no',message='are you sure'):
-        print('you said yes')
-    else:
-        print('you said no')
-
-def click7():
-    answer = messagebox.askquestion(title='ask question',message='do you like pie?')
-    if(answer=='yes'):
-        print('i like pie too :)')
-    else:
-        print('why do you not like pie? :(')
-
-def click8():
-    answer = messagebox.askyesnocancel(title='you no cancel',message='do you like to code?',icon='warning')
-    if(answer==True):
-        print("you like to code")
-    elif(answer==False):
-        print("then why are you here?")
-    else:
-        print("you have dodged the question")
+    window.config(bg=colorchooser.askcolor()[1])
 
 window = Tk()
 
-button = Button(window,
-                text='click me',
-                command=click8)
+window.geometry("420x420")
+button = Button(text='click me',command=click2)
 button.pack()
 
-
-
 window.mainloop()
-
-
-
 
 
 
