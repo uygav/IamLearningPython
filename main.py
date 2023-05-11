@@ -1535,25 +1535,42 @@ from tkinter import *
 
 ################################################## text area
 
+# from tkinter import *
+#
+# def submit():
+#     input = text.get("1.0",END)
+#     print(input)
+# window = Tk()
+#
+# text = Text(window,
+#             bg="light yellow",
+#             font=("Ink Free",25),
+#             height=8,
+#             width=20,
+#             padx=20,
+#             pady=20)
+# text.pack()
+#
+# button = Button(window,text="submit",command=submit)
+# button.pack()
+#
+# window.mainloop()
+
+
+################################################## file dialog
+
 from tkinter import *
+from tkinter import filedialog
 
-def submit():
-    input = text.get("1.0",END)
-    print(input)
+def openFile():
+    filepath = filedialog.askopenfilename()
+    file = open(filepath,'r')
+    print(file.read())
+    file.close()
+
 window = Tk()
-
-text = Text(window,
-            bg="light yellow",
-            font=("Ink Free",25),
-            height=8,
-            width=20,
-            padx=20,
-            pady=20)
-text.pack()
-
-button = Button(window,text="submit",command=submit)
+button=Button(text="Open File",command=openFile)
 button.pack()
-
 window.mainloop()
 
 
