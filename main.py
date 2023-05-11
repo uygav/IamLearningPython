@@ -1559,19 +1559,46 @@ from tkinter import *
 
 ################################################## file dialog
 
+# from tkinter import *
+# from tkinter import filedialog
+#
+# def openFile():
+#     filepath = filedialog.askopenfilename()
+#     file = open(filepath,'r')
+#     print(file.read())
+#     file.close()
+#
+# window = Tk()
+# button=Button(text="Open File",command=openFile)
+# button.pack()
+# window.mainloop()
+
+################################################## save a file
+
 from tkinter import *
 from tkinter import filedialog
 
-def openFile():
-    filepath = filedialog.askopenfilename()
-    file = open(filepath,'r')
-    print(file.read())
+def saveFile():
+    file = filedialog.asksaveasfile(initialdir="C:\\Users\\UYGAV\\PycharmProjects\\pythonTutorial",
+                                    defaultextension='.txt',
+                                    filetypes=[
+                                        ("Text file",".txt"),
+                                        ("HTML file",".html"),
+                                        ("All files",".*"),
+                                    ])
+    filetext = str(text.get(1.0,END))
+    file.write(filetext)
     file.close()
 
 window = Tk()
-button=Button(text="Open File",command=openFile)
+
+button = Button(text='save',command=saveFile)
 button.pack()
+text = Text(window)
+text.pack()
+
 window.mainloop()
+
 
 
 
