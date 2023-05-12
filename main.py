@@ -1642,19 +1642,38 @@ from tkinter import *
 
 ################################################## frames
 
+# from tkinter import *
+#
+# window =Tk()
+#
+# frame = Frame(window,bg="pink",bd=5,relief=SUNKEN)
+# frame.place(x=0,y=0)
+#
+# Button(frame,text="W",font=("Consolas",25),width=3).pack(side=TOP)
+# Button(frame,text="A",font=("Consolas",25),width=3).pack(side=LEFT)
+# Button(frame,text="S",font=("Consolas",25),width=3).pack(side=LEFT)
+# Button(frame,text="D",font=("Consolas",25),width=3).pack(side=LEFT)
+#
+# window.mainloop()
+
+
+################################################## new window
+
 from tkinter import *
 
-window =Tk()
+def create_window():
+    new_window = Tk()
 
-frame = Frame(window,bg="pink",bd=5,relief=SUNKEN)
-frame.place(x=0,y=0)
+    main_window.destroy()
 
-Button(frame,text="W",font=("Consolas",25),width=3).pack(side=TOP)
-Button(frame,text="A",font=("Consolas",25),width=3).pack(side=LEFT)
-Button(frame,text="S",font=("Consolas",25),width=3).pack(side=LEFT)
-Button(frame,text="D",font=("Consolas",25),width=3).pack(side=LEFT)
+main_window = Tk()
 
-window.mainloop()
+Button(main_window,text="create new window",command=create_window).pack()
+
+main_window.mainloop()
+
+
+
 
 
 
