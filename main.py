@@ -1575,27 +1575,67 @@ from tkinter import *
 
 ################################################## save a file
 
+# from tkinter import *
+# from tkinter import filedialog
+#
+# def saveFile():
+#     file = filedialog.asksaveasfile(initialdir="C:\\Users\\UYGAV\\PycharmProjects\\pythonTutorial",
+#                                     defaultextension='.txt',
+#                                     filetypes=[
+#                                         ("Text file",".txt"),
+#                                         ("HTML file",".html"),
+#                                         ("All files",".*"),
+#                                     ])
+#     filetext = str(text.get(1.0,END))
+#     file.write(filetext)
+#     file.close()
+#
+# window = Tk()
+#
+# button = Button(text='save',command=saveFile)
+# button.pack()
+# text = Text(window)
+# text.pack()
+#
+# window.mainloop()
+
+################################################## menubar
+
 from tkinter import *
-from tkinter import filedialog
+
+def openFile():
+    print("File has been opened")
 
 def saveFile():
-    file = filedialog.asksaveasfile(initialdir="C:\\Users\\UYGAV\\PycharmProjects\\pythonTutorial",
-                                    defaultextension='.txt',
-                                    filetypes=[
-                                        ("Text file",".txt"),
-                                        ("HTML file",".html"),
-                                        ("All files",".*"),
-                                    ])
-    filetext = str(text.get(1.0,END))
-    file.write(filetext)
-    file.close()
+    print("File has ben saved")
+
+def cut():
+    print("you cut some text")
+
+def copy():
+    print("you copied some text")
+
+def paste():
+    print("you pasted some text")
 
 window = Tk()
 
-button = Button(text='save',command=saveFile)
-button.pack()
-text = Text(window)
-text.pack()
+menubar = Menu(window)
+window.config(menu=menubar)
+
+fileMenu = Menu(menubar,tearoff=0,font=("MV Boli",15))
+menubar.add_cascade(label="File",menu=fileMenu)
+fileMenu.add_command(label="Open",command=openFile)
+fileMenu.add_command(label="Save",command=saveFile)
+fileMenu.add_separator()
+fileMenu.add_command(label="Exit",command=quit)
+
+editMenu = Menu(menubar,tearoff=0,font=("MV Boli",15))
+menubar.add_cascade(label="Edit",menu=editMenu)
+editMenu.add_command(label="Cut",command=cut)
+editMenu.add_command(label="Copy",command=copy)
+editMenu.add_command(label="Paste",command=paste)
+### you can also add some images
 
 window.mainloop()
 
