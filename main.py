@@ -1673,26 +1673,45 @@ from tkinter import *
 # main_window.mainloop()
 
 ################################################## windows tabs
+# from tkinter import *
+# from tkinter import ttk
+#
+# window = Tk()
+#
+# notebook = ttk.Notebook(window) # widget that manages a collection of windows/displays
+#
+# tab1 = Frame(notebook) # new frame for tab 1
+# tab2 = Frame(notebook) # new frame for tab 2
+#
+# notebook.add(tab1,text="Tab 1")
+# notebook.add(tab2,text="Tab 2")
+# notebook.pack(expand=True,fill="both") # expand = expand to fill any space not otherwise used
+#                                         # fill = fill space on x and y axis
+# Label(tab1,text="Hello , this is tab 1")
+# Label(tab2,text="goodbye , this is tab 2")
+#
+# window.mainloop()
+
+################################################## grid
 from tkinter import *
-from tkinter import ttk
+
+# grid () = geometry manager that organizes widgets in a table-like structure in a parents
 
 window = Tk()
 
-notebook = ttk.Notebook(window) # widget that manages a collection of windows/displays
+titleLable = Label(window,text="Enter you info",font=("Arial",25)).grid(row=0,column=0,columnspan=2)
 
-tab1 = Frame(notebook) # new frame for tab 1
-tab2 = Frame(notebook) # new frame for tab 2
+firstNameLabel = Label(window,text="First Name:",width=20,bg="red").grid(row=1,column=0)
+firstNameEntry = Entry(window).grid(row=1,column=1)
 
-notebook.add(tab1,text="Tab 1")
-notebook.add(tab2,text="Tab 2")
-notebook.pack(expand=True,fill="both") # expand = expand to fill any space not otherwise used
-                                        # fill = fill space on x and y axis
-Label(tab1,text="Hello , this is tab 1")
-Label(tab2,text="goodbye , this is tab 2")
+lastNameLabel = Label(window,text="Last Name :",bg="green").grid(row=2,column=0)
+lastNameEntry = Entry(window).grid(row=2,column=1)
+
+emailLabel = Label(window,text="email:",bg="blue",width=30).grid(row=3,column=0)
+emailEntry = Entry(window).grid(row=2,column=1)
+
+submitButton = Button(window,text="Submit").grid(row=4,column=0,columnspan=2)
 
 window.mainloop()
-
-
-
 
 
