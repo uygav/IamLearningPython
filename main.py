@@ -1659,20 +1659,38 @@ from tkinter import *
 
 ################################################## new window
 
+# from tkinter import *
+#
+# def create_window():
+#     new_window = Tk()
+#
+#     main_window.destroy()
+#
+# main_window = Tk()
+#
+# Button(main_window,text="create new window",command=create_window).pack()
+#
+# main_window.mainloop()
+
+################################################## windows tabs
 from tkinter import *
+from tkinter import ttk
 
-def create_window():
-    new_window = Tk()
+window = Tk()
 
-    main_window.destroy()
+notebook = ttk.Notebook(window) # widget that manages a collection of windows/displays
 
-main_window = Tk()
+tab1 = Frame(notebook) # new frame for tab 1
+tab2 = Frame(notebook) # new frame for tab 2
 
-Button(main_window,text="create new window",command=create_window).pack()
+notebook.add(tab1,text="Tab 1")
+notebook.add(tab2,text="Tab 2")
+notebook.pack(expand=True,fill="both") # expand = expand to fill any space not otherwise used
+                                        # fill = fill space on x and y axis
+Label(tab1,text="Hello , this is tab 1")
+Label(tab2,text="goodbye , this is tab 2")
 
-main_window.mainloop()
-
-
+window.mainloop()
 
 
 
