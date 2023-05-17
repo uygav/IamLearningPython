@@ -1693,25 +1693,61 @@ from tkinter import *
 # window.mainloop()
 
 ################################################## grid
-from tkinter import *
+# from tkinter import *
+#
+# # grid () = geometry manager that organizes widgets in a table-like structure in a parents
+#
+# window = Tk()
+#
+# titleLable = Label(window,text="Enter you info",font=("Arial",25)).grid(row=0,column=0,columnspan=2)
+#
+# firstNameLabel = Label(window,text="First Name:",width=20,bg="red").grid(row=1,column=0)
+# firstNameEntry = Entry(window).grid(row=1,column=1)
+#
+# lastNameLabel = Label(window,text="Last Name :",bg="green").grid(row=2,column=0)
+# lastNameEntry = Entry(window).grid(row=2,column=1)
+#
+# emailLabel = Label(window,text="email:",bg="blue",width=30).grid(row=3,column=0)
+# emailEntry = Entry(window).grid(row=2,column=1)
+#
+# submitButton = Button(window,text="Submit").grid(row=4,column=0,columnspan=2)
+#
+# window.mainloop()
 
-# grid () = geometry manager that organizes widgets in a table-like structure in a parents
+
+################################################## progress bar
+
+from tkinter import *
+from tkinter.ttk import *
+import time
+
+def start():
+    GB = 10
+    download = 0
+    speed = 1
+    while(download<GB):
+        time.sleep(0.05)
+        bar['value']+=(speed/GB)*100
+        download+=speed
+        percent.set(str(int((download/GB)*100))+"%")
+        text.set(str(download)+"/"+str(GB)+" GB completed")
+        window.update_idletasks()
 
 window = Tk()
 
-titleLable = Label(window,text="Enter you info",font=("Arial",25)).grid(row=0,column=0,columnspan=2)
+percent = StringVar()
+text = StringVar()
 
-firstNameLabel = Label(window,text="First Name:",width=20,bg="red").grid(row=1,column=0)
-firstNameEntry = Entry(window).grid(row=1,column=1)
+bar = Progressbar(window,orient=HORIZONTAL,length=300)
+bar.pack(pady=10)
 
-lastNameLabel = Label(window,text="Last Name :",bg="green").grid(row=2,column=0)
-lastNameEntry = Entry(window).grid(row=2,column=1)
+percentLabel = Label(window,textvariable=percent).pack()
+taskLabel = Label(window,textvariable=text).pack()
 
-emailLabel = Label(window,text="email:",bg="blue",width=30).grid(row=3,column=0)
-emailEntry = Entry(window).grid(row=2,column=1)
-
-submitButton = Button(window,text="Submit").grid(row=4,column=0,columnspan=2)
+button = Button(window,text="download",command=start).pack()
 
 window.mainloop()
+
+
 
 
