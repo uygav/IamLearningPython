@@ -1717,36 +1717,57 @@ from tkinter import *
 
 ################################################## progress bar
 
-from tkinter import *
-from tkinter.ttk import *
-import time
+# from tkinter import *
+# from tkinter.ttk import *
+# import time
+#
+# def start():
+#     GB = 10
+#     download = 0
+#     speed = 1
+#     while(download<GB):
+#         time.sleep(0.05)
+#         bar['value']+=(speed/GB)*100
+#         download+=speed
+#         percent.set(str(int((download/GB)*100))+"%")
+#         text.set(str(download)+"/"+str(GB)+" GB completed")
+#         window.update_idletasks()
+#
+# window = Tk()
+#
+# percent = StringVar()
+# text = StringVar()
+#
+# bar = Progressbar(window,orient=HORIZONTAL,length=300)
+# bar.pack(pady=10)
+#
+# percentLabel = Label(window,textvariable=percent).pack()
+# taskLabel = Label(window,textvariable=text).pack()
+#
+# button = Button(window,text="download",command=start).pack()
+#
+# window.mainloop()
 
-def start():
-    GB = 10
-    download = 0
-    speed = 1
-    while(download<GB):
-        time.sleep(0.05)
-        bar['value']+=(speed/GB)*100
-        download+=speed
-        percent.set(str(int((download/GB)*100))+"%")
-        text.set(str(download)+"/"+str(GB)+" GB completed")
-        window.update_idletasks()
+
+################################################## canvas
+
+from tkinter import *
 
 window = Tk()
 
-percent = StringVar()
-text = StringVar()
+canvas = Canvas(window,height=500,width=500)
+canvas.create_line(0,0,500,500,fill="purple",width=2)
+canvas.create_line(0,500,500,0,fill="green",width=2)
+canvas.create_rectangle(50,50,150,150,fill="red")
+point = [350,0,250,250,0,250]
+canvas.create_polygon(point,fill="yellow",outline="black",width=5)
+canvas.create_arc(0,0,350,350,style=PIESLICE,start=180,extend=180)
+canvas.pack()
 
-bar = Progressbar(window,orient=HORIZONTAL,length=300)
-bar.pack(pady=10)
-
-percentLabel = Label(window,textvariable=percent).pack()
-taskLabel = Label(window,textvariable=text).pack()
-
-button = Button(window,text="download",command=start).pack()
 
 window.mainloop()
+
+
 
 
 
