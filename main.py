@@ -1751,21 +1751,43 @@ from tkinter import *
 
 ################################################## canvas
 
+# from tkinter import *
+#
+# window = Tk()
+#
+# canvas = Canvas(window,height=500,width=500)
+# canvas.create_line(0,0,500,500,fill="purple",width=2)
+# canvas.create_line(0,500,500,0,fill="green",width=2)
+# canvas.create_rectangle(50,50,150,150,fill="red")
+# point = [350,0,250,250,0,250]
+# canvas.create_polygon(point,fill="yellow",outline="black",width=5)
+# canvas.create_arc(0,0,350,350,style=PIESLICE,start=180,extend=180)
+# canvas.pack()
+#
+#
+# window.mainloop()
+
+################################################## keyboard events
+
 from tkinter import *
+
+def doSomething(event):
+    print("you pressed: " + event.keysym)
+    label.config(text=event.keysym)
+
 
 window = Tk()
 
-canvas = Canvas(window,height=500,width=500)
-canvas.create_line(0,0,500,500,fill="purple",width=2)
-canvas.create_line(0,500,500,0,fill="green",width=2)
-canvas.create_rectangle(50,50,150,150,fill="red")
-point = [350,0,250,250,0,250]
-canvas.create_polygon(point,fill="yellow",outline="black",width=5)
-canvas.create_arc(0,0,350,350,style=PIESLICE,start=180,extend=180)
-canvas.pack()
+window.bind("<Key>",doSomething)
 
+label = Label(window,font=("Helvetica",50))
+label.pack()
 
 window.mainloop()
+
+
+
+
 
 
 
