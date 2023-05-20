@@ -1788,25 +1788,55 @@ from tkinter import *
 
 ################################################## mouse events
 
+# from tkinter import *
+#
+# def doSomething(event):
+#     print("mouse coordinates:" + str(event.x) + ","+str(event.y))
+#
+# window = Tk()
+#
+# window.bind("<Button-1>",doSomething) # left mouse click
+# window.bind("<Button-2>",doSomething) # scroll wheel
+# window.bind("<Button-3>",doSomething) # right mouse click
+# window.bind("<ButtonRelease>",doSomething)
+# window.bind("<Enter>",doSomething) # enter the window
+# window.bind("<Leave>",doSomething) # leave the window
+# # #### window.bind("<Motion>",doSomething) # where the mouse moved
+#
+# window.mainloop()
+
+
+################################################## drag and drop
+
 from tkinter import *
 
-def doSomething(event):
-    print("mouse coordinates:" + str(event.x) + ","+str(event.y))
+def drag_start(event):
+    widget = event.widget
+    widget.startX = event.x
+    widget.startY = event.y
+
+def drag_motion(event):
+    widget = event.widget
+    x = widget.winfo_x() - widget.startX + event.x
+    y = widget.winfo_y() - widget.startY + event.y
+    widget.place(x=x,y=y)
 
 window = Tk()
 
-window.bind("<Button-1>",doSomething) # left mouse click
-window.bind("<Button-2>",doSomething) # scroll wheel
-window.bind("<Button-3>",doSomething) # right mouse click
-window.bind("<ButtonRelease>",doSomething)
-window.bind("<Enter>",doSomething) # enter the window
-window.bind("<Leave>",doSomething) # leave the window
-# #### window.bind("<Motion>",doSomething) # where the mouse moved
+label = Label(window,bg="red",width=10,height=5)
+label.place(x=0,y=0)
+
+label2 = Label(window,bg="blue",width=10,height=5)
+label2.place(x=110,y=110)
+
+label.bind("<Button-1>",drag_start)
+label.bind("<B1-Motion>",drag_motion)
+
+label2.bind("<Button-1>",drag_start)
+label2.bind("<B1-Motion>",drag_motion)
+
 
 window.mainloop()
-
-
-
 
 
 
