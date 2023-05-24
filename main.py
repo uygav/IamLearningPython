@@ -1840,37 +1840,82 @@ from tkinter import *
 
 ################################################## move image
 
+# from tkinter import *
+#
+# def move_up(event):
+#     label.place(x=label.winfo_x(),y=label.winfo_y()-10)
+# def move_down(event):
+#     label.place(x=label.winfo_x(),y=label.winfo_y()+10)
+# def move_left(event):
+#     label.place(x=label.winfo_x()-10,y=label.winfo_y())
+# def move_right(event):
+#     label.place(x=label.winfo_x()+10,y=label.winfo_y())
+#
+#
+# window = Tk()
+# window.geometry("500x500")
+#
+# window.bind("<w>",move_up)
+# window.bind("<s>",move_down)
+# window.bind("<a>",move_left)
+# window.bind("<d>",move_right)
+#
+# window.bind("<Up>",move_up)
+# window.bind("<Down>",move_down)
+# window.bind("<Left>",move_left)
+# window.bind("<Right>",move_right)
+#
+#
+# my_image = PhotoImage()
+# label = Label(window,image=my_image,bg="green",width=25,height=25)
+# label.place(x=0,y=0)
+#
+# window.mainloop()
+
+################################################## animations
+
 from tkinter import *
+import time
 
-def move_up(event):
-    label.place(x=label.winfo_x(),y=label.winfo_y()-10)
-def move_down(event):
-    label.place(x=label.winfo_x(),y=label.winfo_y()+10)
-def move_left(event):
-    label.place(x=label.winfo_x()-10,y=label.winfo_y())
-def move_right(event):
-    label.place(x=label.winfo_x()+10,y=label.winfo_y())
-
+WIDTH = 650
+HEIGHT = 650
+xVelocity = 3
+yVelocity = 2
 
 window = Tk()
-window.geometry("500x500")
 
-window.bind("<w>",move_up)
-window.bind("<s>",move_down)
-window.bind("<a>",move_left)
-window.bind("<d>",move_right)
+canvas = Canvas(window,width=600,height=600)
+canvas.pack()
 
-window.bind("<Up>",move_up)
-window.bind("<Down>",move_down)
-window.bind("<Left>",move_left)
-window.bind("<Right>",move_right)
+photo_image = PhotoImage(file='C:\\Users\\UYGAV\\PycharmProjects\\pythonTutorial\\pngwing.com (1).png')
+my_image = canvas.create_image(0,0,image=photo_image,anchor=NW)
 
+###### background_photo = PhotoImage(file='C:\\Users\\UYGAV\\PycharmProjects\\pythonTutorial\\pngtree-blue-earth-outer-space-background-image_154148.jpg')
+###### background = canvas.create_image(0,0,image=background_photo,anchor=NW)
 
-my_image = PhotoImage()
-label = Label(window,image=my_image,bg="green",width=25,height=25)
-label.place(x=0,y=0)
+image_width = photo_image.width()
+image_height = photo_image.height()
+
+while True:
+    coordinates = canvas.coords(my_image)
+    print(coordinates)
+    if(coordinates[0]>=(WIDTH-image_width) or coordinates[0]<0):
+        xVelocity = xVelocity * -1
+    if (coordinates[1] >= (WIDTH - image_width) or coordinates[1]<0):
+        yVelocity = yVelocity * -1
+    canvas.move(my_image,0,yVelocity)
+    canvas.move(my_image,xVelocity,0)
+    window.update()
+    time.sleep(0.01)
 
 window.mainloop()
+
+
+
+
+
+
+
 
 
 
