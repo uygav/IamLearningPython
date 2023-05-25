@@ -1913,35 +1913,59 @@ from tkinter import *
 
 ################################################## multiple animation
 
+# from tkinter import *
+# from Ball import *
+# import time
+#
+# window = Tk()
+#
+# WIDTH = 500
+# HEIGHT = 500
+#
+# canvas = Canvas(window,width=WIDTH,height=HEIGHT)
+# canvas.pack()
+#
+# white_ball = Ball(canvas,0,0,100,1,1,"white",)
+# yellow_ball = Ball(canvas,0,0,50,2,3,"yellow",)
+# orange_ball = Ball(canvas,0,0,135,0.5,0.5,"orange",)
+#
+# while True:
+#     white_ball.move()
+#     yellow_ball.move()
+#     orange_ball.move()
+#     window.update()
+#     time.sleep(0.01)
+#
+# window.mainloop()
+
+################################################## clock program
+
 from tkinter import *
-from Ball import *
-import time
+from time import *
+
+def update():
+    time_string = strftime("%I:%M:%S %p")
+    time_label.config(text=time_string)
+
+    day_string = strftime("%A")
+    day_label.config(text=day_string)
+
+    date_string = strftime("%B %d, %Y")
+    date_label.config(text=date_string)
+
+    window.after(1000,update)
 
 window = Tk()
 
-WIDTH = 500
-HEIGHT = 500
+time_label = Label(window,font=("Arial",50),fg="#00FF00",bg="black")
+time_label.pack()
 
-canvas = Canvas(window,width=WIDTH,height=HEIGHT)
-canvas.pack()
+day_label = Label(window,font=("Ink Free",25))
+day_label.pack()
 
-white_ball = Ball(canvas,0,0,100,1,1,"white",)
-yellow_ball = Ball(canvas,0,0,50,2,3,"yellow",)
-orange_ball = Ball(canvas,0,0,135,0.5,0.5,"orange",)
+date_label = Label(window,font=("Ink Free",30))
+date_label.pack()
 
-while True:
-    white_ball.move()
-    yellow_ball.move()
-    orange_ball.move()
-    window.update()
-    time.sleep(0.01)
+update()
 
 window.mainloop()
-
-
-
-
-
-
-
-
