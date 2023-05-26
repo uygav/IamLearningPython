@@ -2001,16 +2001,29 @@ from tkinter import *
 
 ################################################## run with command prompt
 
-print("hello world")
+# print("hello world")
+#
+# name = input("what's your name?: ")
+#
+# print("hello "+name)
+#
+# ## C:\Users\UYGAV\PycharmProjects\pythonTutorial
+# ## python main.py
 
-name = input("what's your name?: ")
+################################################## pip
 
-print("hello "+name)
-
-## C:\Users\UYGAV\PycharmProjects\pythonTutorial
-## python main.py
-
-##################################################
+### pip = package manager for packes and modules from python package index
+###
+###     opnen command prompt
+###
+###     help:           pip
+###     check:          pip --version
+###     update:         pip install --upgrade pip
+###     installed packages:     pip list
+###     check outdated packages :   pip list --outdated
+###     install a package: pip install "package name"
+###
+###     pypi.org
 
 
 
