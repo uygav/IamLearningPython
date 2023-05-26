@@ -1940,32 +1940,77 @@ from tkinter import *
 
 ################################################## clock program
 
-from tkinter import *
-from time import *
+# from tkinter import *
+# from time import *
+#
+# def update():
+#     time_string = strftime("%I:%M:%S %p")
+#     time_label.config(text=time_string)
+#
+#     day_string = strftime("%A")
+#     day_label.config(text=day_string)
+#
+#     date_string = strftime("%B %d, %Y")
+#     date_label.config(text=date_string)
+#
+#     window.after(1000,update)
+#
+# window = Tk()
+#
+# time_label = Label(window,font=("Arial",50),fg="#00FF00",bg="black")
+# time_label.pack()
+#
+# day_label = Label(window,font=("Ink Free",25))
+# day_label.pack()
+#
+# date_label = Label(window,font=("Ink Free",30))
+# date_label.pack()
+#
+# update()
+#
+# window.mainloop()
 
-def update():
-    time_string = strftime("%I:%M:%S %p")
-    time_label.config(text=time_string)
+################################################## send e mail
 
-    day_string = strftime("%A")
-    day_label.config(text=day_string)
+# import smtplib
+#
+# sender = "sender@gmail.com"
+# receiver = "receiver@gmail.com"
+# password = "password123"
+# subject = "python e-mail test"
+# body = "i wrote an email! :)"
+#
+# # header
+# message = f"""From: uygar muntas {sender}
+# To: can muntas {receiver}
+# Subject: {subject}\n
+# {body}
+# """
+#
+# server = smtplib.SMTP("smtp.gmail.com",587)
+# server.starttls()
+#
+# try:
+#     server.login(sender,password)
+#     print("logged in...")
+#     server.sendmail(sender,receiver,message)
+#     print("email has been sent")
+#
+# except smtplib.SMTPAuthenticationError :
+#     print("unable to sign in")
 
-    date_string = strftime("%B %d, %Y")
-    date_label.config(text=date_string)
+################################################## run with command prompt
 
-    window.after(1000,update)
+print("hello world")
 
-window = Tk()
+name = input("what's your name?: ")
 
-time_label = Label(window,font=("Arial",50),fg="#00FF00",bg="black")
-time_label.pack()
+print("hello "+name)
 
-day_label = Label(window,font=("Ink Free",25))
-day_label.pack()
+## C:\Users\UYGAV\PycharmProjects\pythonTutorial
+## python main.py
 
-date_label = Label(window,font=("Ink Free",30))
-date_label.pack()
+##################################################
 
-update()
 
-window.mainloop()
+
